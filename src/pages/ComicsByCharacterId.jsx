@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import pictureNotFoundCharacter from "../assets/img/no-picture-character.webp";
 import pictureNotFoundComic from "../assets/img/no-picture-comic.webp";
 
+import "../style/ComicsByCharacters.css";
+
 const ComicsByCharacterId = () => {
   const { characterId } = useParams(); // Extraction ID du perso depuis URL
   const [comics, setComics] = useState([]); // État pour stocker comics du perso
@@ -115,7 +117,10 @@ const ComicsByCharacterId = () => {
     <div className="search-results">
       {/* Message de chargement */}
       {loading && (
-        <p className="loading">Le Bifrost charge… vos comics arrivent.</p>
+        <p className="loading">
+          Le Bifrost se charge… Votre héros et ses comics sont prêts à traverser
+          !
+        </p>
       )}
 
       {/* Affichage si erreurs */}

@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import axios from "axios";
 
+import pictureNotFoundCharacter from "../assets/img/no-picture-character.webp";
+import pictureNotFoundComic from "../assets/img/no-picture-comic.webp";
+
+import "../style/Home.css";
+
 const Home = () => {
-  // Etats pour stocker lrésultats de recherche, état de chargement, erreurs, et recherche effectuée
+  // Etats pour stocker les résultats de recherche, état de chargement, erreurs, et recherche effectuée
   const [characters, setCharacters] = useState([]);
   const [comics, setComics] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -12,7 +17,6 @@ const Home = () => {
 
   // Fonction de gestion de recherche
   const handleSearch = async (query) => {
-    // Si requête vide, réinitialiser résultats et états
     if (!query.trim()) {
       setCharacters([]);
       setComics([]);
@@ -20,12 +24,11 @@ const Home = () => {
       return;
     }
 
-    setLoading(true); // Affichage du chargement
-    setError(null); // Réinitialisation erreur
-    setHasSearched(true); // Marquer qu'une recherche a été effectuée
+    setLoading(true);
+    setError(null);
+    setHasSearched(true);
 
     try {
-      // Utilisation de Promise.all pour récupérer les persos et comics simultanément
       const [charactersResponse, comicsResponse] = await Promise.all([
         axios.get(
           `https://site--marvel-backend--8hzg6997hg46.code.run/characters?name=${query}`
@@ -35,41 +38,50 @@ const Home = () => {
         ),
       ]);
 
-      // MàJ des résultats avec données récupérées
       setCharacters(charactersResponse.data.results || []);
       setComics(comicsResponse.data.results || []);
     } catch (err) {
-      // Si erreur lors de la récupération des données-> MàJ état d'erreur
       setError(
         "Un bug dans le Multivers… Les données sont inaccessibles pour l'instant."
       );
     } finally {
-      setLoading(false); // Arrêter chargement
+      setLoading(false);
     }
+  };
+
+  // Fonction pour obtenir URL de l'image + logique de remplacement
+  const getImageUrl = (thumbnail, isComic = false) => {
+    const imageSrc = `${thumbnail.path}/portrait_fantastic.${thumbnail.extension}`;
+    const defaultImages = [
+      "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/portrait_fantastic.jpg",
+      "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708/portrait_fantastic.gif",
+    ];
+
+    let finalImageSrc = imageSrc;
+    if (defaultImages.includes(imageSrc)) {
+      finalImageSrc = isComic ? pictureNotFoundComic : pictureNotFoundCharacter;
+    }
+
+    return finalImageSrc;
   };
 
   return (
     <div>
-      {/* Barre de recherche */}
       <SearchBar
-        onSearch={handleSearch} // Fonction de recherche = prop
+        onSearch={handleSearch}
         placeholder="Entrez un mot-clé et laissez Jarvis chercher pour vous."
       />
 
-      {/* Affichage indicateur de chargement */}
       {loading && (
         <p className="loading">
           Les Gardiens de la Galaxie fouillent l’univers... Patience !
         </p>
       )}
 
-      {/* Résultats de recherche affichés uniquement après une recherche */}
       {hasSearched && (
         <div className="search-results">
-          {/* Si erreur survient -> on l'affiche ici */}
           {error && <p className="error">{error}</p>}
 
-          {/* Section des persos */}
           {characters.length > 0 && (
             <div className="section">
               <h2>Personnages</h2>
@@ -77,19 +89,20 @@ const Home = () => {
                 {characters.map((character, index) => (
                   <div key={character._id || index} className="result-item">
                     {character.thumbnail && (
-                      <img
-                        src={`${character.thumbnail.path}/portrait_medium.${character.thumbnail.extension}`}
-                        alt={character.name}
-                      />
+                      <div className="result-image">
+                        <img
+                          src={getImageUrl(character.thumbnail)}
+                          alt={character.name}
+                        />
+                      </div>
                     )}
-                    <div className="name">{character.name}</div>
+                    <div className="result-title">{character.name}</div>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Section des comics */}
           {comics.length > 0 && (
             <div className="section">
               <h2>Comics</h2>
@@ -97,19 +110,20 @@ const Home = () => {
                 {comics.map((comic, index) => (
                   <div key={comic._id || index} className="result-item">
                     {comic.thumbnail && (
-                      <img
-                        src={`${comic.thumbnail.path}/portrait_medium.${comic.thumbnail.extension}`}
-                        alt={comic.title}
-                      />
+                      <div className="result-image">
+                        <img
+                          src={getImageUrl(comic.thumbnail, true)}
+                          alt={comic.title}
+                        />
+                      </div>
                     )}
-                    <div className="name">{comic.title}</div>
+                    <div className="result-title">{comic.title}</div>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Si aucun résultat -> */}
           {characters.length === 0 && comics.length === 0 && !error && (
             <p className="no-results">
               Ce héros ou comic est introuvable… Peut-être que Thanos l’a

@@ -1,0 +1,43 @@
+/**===RESULTS===*/
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.section h2 {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.character-description {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+.result-item .result-title {
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  overflow: auto;
+}
+
+.result-item .result-image {
+  width: 150px;
+  height: auto;
+}
+
+/*===LOADING===*/
+.loading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #32402a;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f4e9c0;
+  border-radius: 5px;
+}

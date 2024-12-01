@@ -7,13 +7,14 @@
 }
 
 .favorite-container {
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   background-color: #f4e9c0;
   border: 1px solid #32402a;
   border-radius: 5px;
   padding: 20px;
-  margin: 20px;
 }
 
 .favorite-title {

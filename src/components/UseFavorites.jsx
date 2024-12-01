@@ -7,6 +7,7 @@ const UseFavorites = () => {
   // Charger favoris depuis cookies au démarrage
   useEffect(() => {
     const storedFavorites = Cookies.get("favorites"); // Récupérer fav stockés dans cookies
+    console.log(storedFavorites);
     if (storedFavorites) {
       setFavorites(JSON.parse(storedFavorites)); // Si fav -> parser et définir dans l'état
     }
