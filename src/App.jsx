@@ -7,7 +7,7 @@ import "../Reset.css";
 // Composants
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import useFavorites from "./components/useFavorites";
+import UseFavorites from "./components/UseFavorites";
 
 // Pages
 import Home from "./pages/Home";
@@ -18,7 +18,7 @@ import ComicId from "./pages/ComicId";
 import Favorite from "./pages/Favorite";
 
 function App() {
-  const { favorites, addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const { favorites, addFavorite, removeFavorite, isFavorite } = UseFavorites();
 
   return (
     <Router>

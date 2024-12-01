@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
-const useFavorites = () => {
+const UseFavorites = () => {
   const [favorites, setFavorites] = useState([]);
 
   // Charger favoris depuis cookies au démarrage
@@ -43,4 +43,4 @@ const useFavorites = () => {
   };
 };
 
-export default useFavorites;
+export default UseFavorites;
