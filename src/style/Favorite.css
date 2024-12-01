@@ -1,0 +1,92 @@
+/*===FAVORITES===*/
+
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite-container {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  background-color: #f4e9c0;
+  border: 1px solid #32402a;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.favorite-title {
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #32402a;
+}
+
+.favorite-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.favorite-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #f4e9c0;
+  border: 3px solid #32402a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.favorite-item-content {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  flex-grow: 1;
+}
+
+.favorite-item-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.favorite-item-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #32402a;
+}
+
+.remove-favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #c65748;
+  transition: color 0.3s ease;
+  margin-left: auto;
+  font-weight: bold;
+}
+
+/*=== HEART ICONS ===*/
+
+.favorite-btn {
+  padding: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: #c65748;
+}
+
+.heart-icon.empty {
+  color: #32402a;
+}
+
+.heart-icon.filled {
+  color: #c65748;
+}

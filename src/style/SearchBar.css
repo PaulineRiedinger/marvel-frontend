@@ -1,0 +1,113 @@
+/*===SEARCHBAR===*/
+
+.search-bar {
+  font-family: "Montserrat", sans-serif;
+  color: #1c3d3d;
+  background-color: #f4e9c0;
+  border: 3px solid #32402a;
+  max-width: 100%;
+  margin: 10px;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+}
+
+.search-bar input {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  color: #1c3d3d;
+  background-color: #f4e9c0;
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+  width: 100%;
+}
+
+.search-bar input::placeholder {
+  color: #32402a;
+}
+
+/*===RESULTS===*/
+
+.search-results .results {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-results .result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 15px;
+  background-color: #f4e9c0;
+  border: 3px solid #32402a;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.result-image {
+  height: 150px;
+  width: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.result-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.result-item .result-title {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 1px solid #32402a;
+}
+
+.result-item .result-description {
+  font-size: 14px;
+  text-align: left;
+  padding: 10px;
+  overflow: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.result-item .result-description::-webkit-scrollbar {
+  width: 2px;
+}
+
+.result-item .result-description::-webkit-scrollbar-thumb {
+  background-color: #32402a;
+  border-radius: 2px;
+}
+
+.result-item .result-description::-webkit-scrollbar-track {
+  background-color: #fbf7e6;
+}
+
+/*===LOADING===*/
+
+.loading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #32402a;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4e9c0;
+  border-radius: 5px;
+}

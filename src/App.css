@@ -1,0 +1,38 @@
+/*===STYLE GLOBAL===*/
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to bottom, #c85b4c, #85a299);
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.points-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, black 30%, transparent 31%) 0 0 / 15px
+    15px;
+  mask-image: linear-gradient(to bottom, transparent 50%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 50%, black 100%);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}

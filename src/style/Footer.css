@@ -1,0 +1,20 @@
+/*===FOOTER===*/
+
+footer {
+  text-align: center; /* Centre l'élément div dans le footer */
+}
+
+footer div {
+  font-family: "Montserrat", sans-serif;
+  color: #1c3d3d;
+  background-color: #85a299; /* Couleur de fond */
+  text-align: center;
+  display: inline-block; /* Le contenu s'ajuste à sa taille */
+  padding: 5px 5px; /* Ajoutez du padding pour un espace autour du texte */
+  border-radius: 8px; /* Optionnel : des coins arrondis pour un style plus élégant */
+}
+
+footer div a {
+  color: #1c3d3d;
+  font-weight: bold;
+}
